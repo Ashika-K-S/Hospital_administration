@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+Doctor
+{% endblock %}
+{% block content %}
+<h2>Doctor page</h2>
+
+<div class="container">
+    
+    <!-- REQUIRED: this makes columns appear side by side -->
+    <div class="row">
+
+    {% for d in doctors %}
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-0">
+
+                <!-- doctor image -->
+                <img src="{{ d.doc_image.url }}" 
+                     class="card-img-top"
+                     style="height: 300px; object-fit: cover;">
+
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">{{ d.doc_name }}</h5>
+                    <p class="card-text text-muted mb-1"><strong>Specialization:</strong> {{ d.doc_spec }}</p>
+                    <h6>{{ d.dep_name }} Department</h6>
+                    <a href="#" class="btn btn-primary w-100 mt-2">Book Appointment</a>
+                </div>
+
+            </div>
+        </div>
+
+    {% endfor %}
+
+    </div> <!-- END ROW -->
+
+</div>
+
+{% endblock %}
